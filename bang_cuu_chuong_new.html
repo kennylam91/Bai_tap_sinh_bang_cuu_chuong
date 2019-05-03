@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+<script>
+    function columnHeader(x) {// Hàm tạo tiêu đề của Cột có dạng: <th>...</th>
+        let result1="";
+        for (k = 2; k <= x; k++) {
+            result1+="<th>" +k +"</th>>";
+        }
+        return result1;
+    }
+console.log(columnHeader(9));
+    function rowDefine(x) { // Hàm tạo định dạng của các ô trong 1 hàng
+        //Ô trong <table> cần có dạng <td>...</td>
+        result2 = "";//Khởi tạo kết quả của hàm
+        for (i = 2; i <= 9; i++) {
+            result2 += '<td> ' + i + ' x ' + x + ' </td>';
+        }
+        return result2;
+    }
+
+    console.log(rowDefine(2));
+
+    function tableDefine(y) { //Hàm tạo định dạng của các hàng trong bảng
+        result3 = "<tr>"+columnHeader(9)+"</tr>";// Khởi tạo biến kết quả với hàng tiêu đề
+        for (j = 1; j <= y; j++) {
+            result3 += "<tr>" + rowDefine(j) + " </tr>";
+        }
+        return result3;
+    }
+
+    // console.log(rowDefine(2));
+    let tableCss = '<table border="1" cellspacing="0" cellpadding="10px" width="1000px"><caption><h1>Bảng Cửu Chương</h1></caption>';
+    document.write(tableCss + tableDefine(9) + "</table>");
+</script>
+<style>
+    td {
+        text-align: center;
+    }
+
+</style>
+</body>
+</html>
